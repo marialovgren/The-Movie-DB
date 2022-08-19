@@ -2,35 +2,23 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import ListGroup from 'react-bootstrap/ListGroup'
-
 
 const MovieList20 = ({ movie }) => {
 
+	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
+
 	return (
 		<Row className="popularMoviesList" >
-		
 			{movie.map(movie => (
 				<Col lg={4} md={6} sm={12} className="mb-3">
 					<Card key={movie.id} >
-					
-						<Card.Header>
-				
-						{movie.title}
-						</Card.Header>
+						<Card.Img variant="top" src={BASE_URL_IMAGE + movie.poster_path} />
 						<Card.Body>
-							<ListGroup lg={4} md={6} sm={12}  variant="flush">
-							<ListGroup.Item>
-								<strong>Released: </strong> {movie.release_date}
-							</ListGroup.Item>
-
-							</ListGroup>
+						{movie.title}
 						</Card.Body>
-					
 					</Card>
-					</Col>
+				</Col>
 			))}
-		
 		</Row>
 	)
 }
