@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import './assets/scss/App.scss'
+
+/* Pages */
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-import './assets/scss/App.scss'
+import GenrePage from './pages/GenrePage'
 
 function App() {
 	return (
@@ -11,6 +14,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/genre" element={<GenrePage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</div>
