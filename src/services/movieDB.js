@@ -30,15 +30,20 @@ const getLatestCinemaMovies = async () => {
 	return get(`/movie/now_playing?api_key=${API_KEY}&region=US`)
 }
 
-const getDiscoverMovies = async ({queryKey}) => {
+const getMoviesByGenre = async ({queryKey}) => {
 	const [_key, { page, genre_id }] = queryKey
-	return get(`/discover/movie/?api_key=${API_KEY}&region=US&popularity.desc&with_genres=${genre_id}&include_adult=false`)
-};
+	return get(`/discover/movie/?api_key=${API_KEY}&region=US&popularity.desc&with_genres=${genre_id}&include_adult=false&page=${page}`)
+}
+
+const getGenreList = async () => {
+	return get(`/genre/movie/list?api_key=${API_KEY}&region=US`)
+}
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
 	getPopularMovies,
 	getTopRatedMovies,
 	getLatestCinemaMovies,
-	getDiscoverMovies,
+	getMoviesByGenre,
+	getGenreList,
 }

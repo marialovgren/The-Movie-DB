@@ -1,9 +1,8 @@
 import Container from 'react-bootstrap/Container'
 
 //components
-
-import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCarousel from '../components/MovieCarousel'
+import GenrePage from './GenrePage'
 
 const HomePage = () => {
 

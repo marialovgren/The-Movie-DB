@@ -3,8 +3,8 @@
 import { useQuery } from "react-query";
 import movieDB from "../services/movieDB";
 
-const useMoviesByGenre = (genre_id) => {
-    return useQuery( ['movie-by-genre', genre_id], () => { movieDB.getDiscoverMovies(genre_id), {keepPreviousData: true}})
+const useMoviesByGenre = (page, genre_id) => {
+    return useQuery(['movie-by-genre', {page, genre_id}], movieDB.getMoviesByGenre, {keepPreviousData: true})
 }
 
 export default useMoviesByGenre

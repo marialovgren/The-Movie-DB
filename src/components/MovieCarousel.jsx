@@ -12,7 +12,7 @@ const MovieCarousel = () => {
 	const { data: topRatedMovies } = useTopRatedMovies()
     const { data: latestCinemaMovies } = useLatestCinemaMovies()
 
-    const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500/'
+    const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 
     if (!popularMovies || !topRatedMovies || !latestCinemaMovies) {
 		return <p>Couldn´t load any movies!</p>
