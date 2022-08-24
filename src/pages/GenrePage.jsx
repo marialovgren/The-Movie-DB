@@ -23,8 +23,11 @@ const GenrePage = () => {
     genreList?.genres?.find(genre => {
         if (Number(genre_id) === genre.id) {
             genreName = genre.name
+            console.log("genre_id och genre.id", genre_id, genre.id)
         }
-})
+    })
+
+    console.log("moviesByGenre.results: ", moviesByGenre?.results)
 
 	return (
 		<Container className="py-3 my-3">
@@ -50,6 +53,7 @@ const GenrePage = () => {
                                     genre_id: genre.id,
                                     page: 1,
                                 })
+                                console.log("changing genre to: ", genre.name)
                             }}
                             >
                                 {genre.name}
@@ -67,7 +71,7 @@ const GenrePage = () => {
                 <>
                 <h4 className="my-3">Now showing genre: {genreName}</h4>
                 {moviesByGenre.results.map(movie => (
-                    <p>{movie.title}</p>
+                    <p key={movie.id}>{movie.title}</p>
                 ))}
                 </>
             )}        

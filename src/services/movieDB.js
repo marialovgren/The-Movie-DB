@@ -17,6 +17,9 @@ const get = async (endpoint) => {
 	return response.data
 }
 
+const getMovie = async (id) => {
+	return get(`/movie/${id}?api_key=${API_KEY}&region=US`)
+}
 
 const getPopularMovies = async () => {
 	return get(`/movie/popular?api_key=${API_KEY}&region=US`)
@@ -41,6 +44,7 @@ const getGenreList = async () => {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
+	getMovie,
 	getPopularMovies,
 	getTopRatedMovies,
 	getLatestCinemaMovies,
