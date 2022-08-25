@@ -1,6 +1,5 @@
-import Carousel from 'react-bootstrap/Carousel'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { Carousel, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 //hooks
 import usePopularMovies from '../hooks/usePopularMovies'
@@ -25,11 +24,19 @@ const MovieCarousel = () => {
                 {popularMovies && (
                     <Carousel className="my-3 movieCarousel">
                     {popularMovies.results.map(movie => (
-                    <Carousel.Item key={movie.id} interval={2000} >
+                    <Carousel.Item 
+                        key={movie.id} 
+                        interval={2000} 
+                        action="true"
+                        as={Link}
+                        to={`/movie/${movie.id}`}
+                    >
                         <img 
                         className="d-block w-100"
                         src={BASE_URL_IMAGE + movie.poster_path}
                         alt="First slide"
+                     
+                      
                         />
                     </Carousel.Item>
                     ))}
@@ -43,7 +50,13 @@ const MovieCarousel = () => {
                 {topRatedMovies && (
                     <Carousel className="my-3 movieCarousel">
                     {topRatedMovies.results.map(movie => (
-                    <Carousel.Item key={movie.id} interval={2000} >
+                    <Carousel.Item 
+                        key={movie.id} 
+                        interval={2000} 
+                        action="true"
+                        as={Link}
+                        to={`/movie/${movie.id}`}
+                    >
                         <img 
                         className="d-block w-100"
                         src={BASE_URL_IMAGE + movie.poster_path}
@@ -61,7 +74,13 @@ const MovieCarousel = () => {
                 {latestCinemaMovies && (
                     <Carousel className="my-3 movieCarousel">
                     {latestCinemaMovies.results.map(movie => (
-                    <Carousel.Item key={movie.id} interval={2000} >
+                    <Carousel.Item 
+                        key={movie.id} 
+                        interval={2000} 
+                        action="true"
+                        as={Link}
+                        to={`/movie/${movie.id}`}
+                    >
                         <img 
                         className="d-block w-100"
                         src={BASE_URL_IMAGE + movie.poster_path}

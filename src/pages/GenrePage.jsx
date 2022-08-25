@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container'
 import WarningAlert from '../components/alerts/WarningAlert'
 import Dropdown from 'react-bootstrap/Dropdown';
 import {useSearchParams} from 'react-router-dom'
+import {useState} from 'react'
 
 //hooks
 import useGenreList from '../hooks/useGenreList' 
@@ -12,20 +13,14 @@ const GenrePage = () => {
         page: 1, 
         genre_id:"",
     })
+
+    const [genreName, setGenreName] = useState("")
     
     const genre_id = searchParams.get('genre_id')
     const page = searchParams.get('page') // denna har jag till min paginering för att sätta page
-    let genreName = ""
 
     const { data: genreList, isError, isLoading, error } = useGenreList()
-    const { data: moviesByGenre } = useMoviesByGenre()
-  
-    genreList?.genres?.find(genre => {
-        if (Number(genre_id) === genre.id) {
-            genreName = genre.name
-            console.log("genre_id och genre.id", genre_id, genre.id)
-        }
-    })
+    const { data: moviesByGenre } = useMoviesByGenre(page, genre_id)
 
     console.log("moviesByGenre.results: ", moviesByGenre?.results)
 
@@ -50,10 +45,10 @@ const GenrePage = () => {
                             key={genre.id}
                             onClick={ () => {
                                 setSearchParams({
-                                    genre_id: genre.id,
                                     page: 1,
+                                    genre_id: genre.id
                                 })
-                                console.log("changing genre to: ", genre.name)
+                            setGenreName(genre.name)
                             }}
                             >
                                 {genre.name}
@@ -75,6 +70,9 @@ const GenrePage = () => {
                 ))}
                 </>
             )}        
+
+
+            
           
 		</Container>
 	)
