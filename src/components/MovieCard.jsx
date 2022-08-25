@@ -4,10 +4,14 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from "react-router-dom";
-import SortableTable from '../../../05-books-library/src/components/SortableTable'
+import { useNavigate, useParams } from "react-router-dom";
+import CastList from './CastList'
+import useCredits from '../hooks/useCredits'
+
 
 const MovieCard = ({ movie, data }) => {
+	const { id } = useParams()
+	const { data: movieCredits } = useCredits(id)
 
 	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 	const navigate = useNavigate();
@@ -42,10 +46,10 @@ const MovieCard = ({ movie, data }) => {
 							{movie.tagline && (
 								<ListGroup.Item>Tagline: <span><i>{movie.tagline}</i></span></ListGroup.Item>
 							)}
-							<ListGroup.Item>Actors in this movie: 
-								<ul>
-									<li>Actor 1</li>
-								</ul>
+							<ListGroup.Item>
+								{movieCredits && (
+									<CastList movieCredits={movieCredits} />
+								)}
 							</ListGroup.Item>
 						</ListGroup>
 					</Card>

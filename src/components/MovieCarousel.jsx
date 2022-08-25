@@ -19,7 +19,7 @@ const MovieCarousel = () => {
 
 	return (
         <Row className="movieCarouselWrapper">
-            <Col sm={12} md={5} lg={4}>
+            <Col sm={12} md={5} lg={3}>
                 <h5>20 most popular movies</h5>
                 {popularMovies && (
                     <Carousel className="my-3 movieCarousel">
@@ -35,8 +35,6 @@ const MovieCarousel = () => {
                         className="d-block w-100"
                         src={BASE_URL_IMAGE + movie.poster_path}
                         alt="First slide"
-                     
-                      
                         />
                     </Carousel.Item>
                     ))}
@@ -45,7 +43,7 @@ const MovieCarousel = () => {
                 
             </Col>
 
-            <Col sm={12} md={5} lg={4}>
+            <Col sm={12} md={5} lg={3}>
                 <h5>20 top rated movies</h5>
                 {topRatedMovies && (
                     <Carousel className="my-3 movieCarousel">
@@ -69,7 +67,7 @@ const MovieCarousel = () => {
                 
             </Col>
 
-            <Col sm={12} md={5} lg={4}>
+            <Col sm={12} md={5} lg={3}>
                 <h5>20 lates movies in cinema</h5>
                 {latestCinemaMovies && (
                     <Carousel className="my-3 movieCarousel">

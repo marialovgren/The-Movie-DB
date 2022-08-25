@@ -4,10 +4,11 @@ import WarningAlert from '../components/alerts/WarningAlert'
 import useMovie from '../hooks/useMovie'
 import MovieCard from '../components/MovieCard'
 
+
 const MoviePage = () => {
 	const { id } = useParams()
 	const { data: movie, error, isError, isLoading } = useMovie(id)
-
+	
 	return (
 		<Container className="py-3">
 			{isLoading && <p>Loading Movie.... </p>}
@@ -17,6 +18,8 @@ const MoviePage = () => {
 			{movie && <>
 				<MovieCard movie={movie}/>
 			</>}
+
+
 		</Container>
 	)
 }

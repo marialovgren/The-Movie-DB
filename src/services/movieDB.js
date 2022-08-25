@@ -42,6 +42,10 @@ const getGenreList = async () => {
 	return get(`/genre/movie/list?api_key=${API_KEY}&region=US`)
 }
 
+const getCredits = async (id) => {
+	return get(`/movie/${id}/credits?api_key=${API_KEY}&region=US`)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
 	getMovie,
@@ -50,4 +54,5 @@ export default {
 	getLatestCinemaMovies,
 	getMoviesByGenre,
 	getGenreList,
+	getCredits,
 }

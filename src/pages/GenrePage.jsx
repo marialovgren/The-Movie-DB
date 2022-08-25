@@ -1,8 +1,16 @@
+import { useSearchParams, Link } from 'react-router-dom'
+import { useState } from 'react'
+
+// bootstrap
+import Dropdown from 'react-bootstrap/Dropdown'
 import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button';
+
+// components 
 import WarningAlert from '../components/alerts/WarningAlert'
-import Dropdown from 'react-bootstrap/Dropdown';
-import {useSearchParams} from 'react-router-dom'
-import {useState} from 'react'
+import SmallCard from '../components/SmallCard'
 
 //hooks
 import useGenreList from '../hooks/useGenreList' 
@@ -22,11 +30,24 @@ const GenrePage = () => {
     const { data: genreList, isError, isLoading, error } = useGenreList()
     const { data: moviesByGenre } = useMoviesByGenre(page, genre_id)
 
-    console.log("moviesByGenre.results: ", moviesByGenre?.results)
-
 	return (
 		<Container className="py-3 my-3">
-			<h1>Choose movie by genre</h1>
+            <Row className="d-flex align-items-center">
+                <Col xs={12} md={10}>
+                    <h1>All movies</h1>
+                </Col>
+
+                <Col xs={12} md={2} xs={{ order: 'first' }} md={{ order: 'last' }} className="d-flex justify-content-end">
+                    <Button 
+                        className="mb-sm-2" 
+                        active 
+                        variant="dark" 
+                        as={Link}
+                        to={'/'}
+                        >Back
+                    </Button>
+                </Col>
+            </Row>
 
             {isLoading && <p>Loading all genres....</p>}
 
@@ -34,46 +55,52 @@ const GenrePage = () => {
             
             {genreList && (
                 <div className="my-3">
-                    <Dropdown>
-                        <Dropdown.Toggle variant="warning" id="dropdown-basic">
-                            Choose genre
-                        </Dropdown.Toggle>
-                
-                        <Dropdown.Menu>
-                        {genreList.genres.map(genre => (
-                            <Dropdown.Item 
-                            key={genre.id}
-                            onClick={ () => {
-                                setSearchParams({
-                                    page: 1,
-                                    genre_id: genre.id
-                                })
-                            setGenreName(genre.name)
-                            }}
-                            >
-                                {genre.name}
-                            </Dropdown.Item>
-                        ))}
-                        </Dropdown.Menu>
-                    </Dropdown>
-           
+                    <Row className="d-flex align-items-center">
+                        <Col xs={12} md={6}>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                                Choose genre
+                            </Dropdown.Toggle>
+                    
+                            <Dropdown.Menu>
+                            {genreList.genres.map(genre => (
+                                <Dropdown.Item 
+                                key={genre.id}
+                                onClick={ () => {
+                                    setSearchParams({
+                                        page: 1,
+                                        genre_id: genre.id
+                                    })
+                                setGenreName(genre.name)
+                                }}
+                                >
+                                    {genre.name}
+                                </Dropdown.Item>
+                            ))}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
+
+                    <Col xs={12} md={6} className="d-flex justify-content-end">
+                        {genreName && (
+                            <h4 className="my-3">Now showing genre: {genreName}</h4>
+                        )}
+                        </Col>
+			    </Row>
                     
                 </div>
                
             )}   
 
             {moviesByGenre && (
-                <>
-                <h4 className="my-3">Now showing genre: {genreName}</h4>
-                {moviesByGenre.results.map(movie => (
-                    <p key={movie.id}>{movie.title}</p>
-                ))}
-                </>
+                <Row className="d-flex flex-row justify-content-center">
+                    {moviesByGenre.results.map(movie => (
+                        <Col xs={10} md={4} lg={3}>
+                            <SmallCard movie={movie} key={movie.id} />
+                        </Col>	
+                    ))}
+                </Row>  
             )}        
-
-
-            
-          
 		</Container>
 	)
 }
