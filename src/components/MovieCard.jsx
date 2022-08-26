@@ -37,7 +37,7 @@ const MovieCard = ({ movie, data }) => {
 				</Col>
 
 				<Col xs={10} md={6} lg={5}>
-					<Card key={movie.id} className="my-3" bg="warning">
+					<Card key={movie.id} className="my-3">
 						<ListGroup className="list-group-flush">
 							<ListGroup.Item>{movie.overview}</ListGroup.Item>
 							<ListGroup.Item>Released: {movie.release_date}</ListGroup.Item>

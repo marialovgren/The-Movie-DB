@@ -1,4 +1,6 @@
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 const CastList = ({ movieCredits }) => {
 /* 	if (!movie.length) {
@@ -8,18 +10,24 @@ const CastList = ({ movieCredits }) => {
     console.log("movieCredits.cast in CastList: ", movieCredits.cast)
 
 	return (
-		<Table bordered>
+		<Table striped hover>
 			<thead>
 				<tr>
 					<th>Cast in this movie:</th>
-                    <th>Read More</th>
+                   
 				</tr>
 			</thead>
 			<tbody>
 				{movieCredits.cast.map(credits => (
 					<tr key={credits.id}>
-						<td>{credits.name}</td>
-                        <td>Click here</td>
+						<td>
+                            <a className="text-decoration-none"
+                                href="/"
+                                as={Link}
+                                >{credits.name}
+                               
+                            </a>
+                            </td>
 					</tr>
 				))}
 			</tbody>
