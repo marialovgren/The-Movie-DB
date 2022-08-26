@@ -1,13 +1,15 @@
 import Table from 'react-bootstrap/Table'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
+import { Link/* , useParams */ } from 'react-router-dom'
+
+/* import useCast from '../hooks/useCast' */
 
 const CastList = ({ movieCredits }) => {
-/* 	if (!movie.length) {
-		return <p>No movies for you!</p>
-	} */
+/* 	const { id } = useParams()
+	const { data: person } = useCast(id) */
 
-    console.log("movieCredits.cast in CastList: ", movieCredits.cast)
+
+    console.log("movieCredits in CastList: ", movieCredits)
+	console.log("movieCredits.cast in CastList: ", movieCredits.cast)
 
 	return (
 		<Table striped hover>
@@ -22,10 +24,9 @@ const CastList = ({ movieCredits }) => {
 					<tr key={credits.id}>
 						<td>
                             <a className="text-decoration-none"
-                                href="/"
+                                href={`/person/${credits.cast}`}
                                 as={Link}
                                 >{credits.name}
-                               
                             </a>
                             </td>
 					</tr>

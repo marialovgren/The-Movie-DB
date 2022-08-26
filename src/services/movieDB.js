@@ -3,7 +3,7 @@
  *
  * <https://www.themoviedb.org>
  * API: < https://developers.themoviedb.org/3/getting-started>
- * Reference: <https://developers.themoviedb.org/3.>
+ * Reference: <https://developers.themoviedb.org/3>
  */
 
 import axios from 'axios'
@@ -46,6 +46,10 @@ const getCredits = async (id) => {
 	return get(`/movie/${id}/credits?api_key=${API_KEY}&region=US`)
 }
 
+const getCast = async (id) => {
+	return get(`/person/${id}?api_key=${API_KEY}&region=US`)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
 	getMovie,
@@ -55,4 +59,5 @@ export default {
 	getMoviesByGenre,
 	getGenreList,
 	getCredits,
+	getCast,
 }
