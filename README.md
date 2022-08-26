@@ -43,4 +43,4 @@ It should also (wherever a film is shown) be able to click on a movie and see in
 
 ## Printscreen
 
-<img src="" width=100%>
+<img src="https://github.com/marialovgren/The-Movie-DB/blob/main/src/assets/images/movie-db.jpg" width=100%>
