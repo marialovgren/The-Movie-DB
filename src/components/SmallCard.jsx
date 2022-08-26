@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 
 const SmallCard = ({ movie }) => {
 
-	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
+	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
 	return (
-		<Card key={movie.id} className="my-3">
+		<Card  className="my-3">
             <Card.Img variant="top" src={BASE_URL_IMAGE + movie.poster_path} />
 			<Card.Body>
                 <Card.Title className="cardTitle">{movie.title}</Card.Title>

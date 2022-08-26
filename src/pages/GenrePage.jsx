@@ -95,7 +95,7 @@ const GenrePage = () => {
             {moviesByGenre && (
                 <Row className="d-flex flex-row justify-content-center">
                     {moviesByGenre.results.map(movie => (
-                        <Col xs={10} md={4} lg={3}>
+                        <Col xs={10} md={4} lg={3} >
                             <SmallCard movie={movie} key={movie.id} />
                         </Col>	
                     ))}

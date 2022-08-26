@@ -13,7 +13,6 @@ const API_KEY = import.meta.env.VITE_THE_MOVIE_DB_API_KEY
 
 const get = async (endpoint) => {
 	const response = await axios.get(endpoint)
-
 	return response.data
 }
 
@@ -35,7 +34,7 @@ const getLatestCinemaMovies = async () => {
 
 const getMoviesByGenre = async ({queryKey}) => {
 	const [_key, { page, genre_id }] = queryKey
-	return get(`/discover/movie/?api_key=${API_KEY}&region=US&popularity.desc&with_genres=${genre_id}&include_adult=false&page=${page}`)
+	return get(`/discover/movie?api_key=${API_KEY}&region=US&popularity.desc&with_genres=${genre_id}&include_adult=false&page=${page}`)
 }
 
 const getGenreList = async () => {
