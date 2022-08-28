@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import Navigation from './components/Navigation'
 import './assets/scss/App.scss'
+import Footer from './components/Footer'
 
 /* Pages */
 import HomePage from './pages/HomePage'
@@ -22,6 +23,8 @@ function App() {
 				<Route path="/person/:id" element={<PersonPage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+
+			<Footer />
 
 			<ReactQueryDevtools position='bottom-right' />
 		</div>
