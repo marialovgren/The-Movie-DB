@@ -6,15 +6,17 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button';
 import { useNavigate, useParams } from "react-router-dom";
 import CastList from './CastList'
-import useCredits from '../hooks/useCredits'
+/* import useCredits from '../hooks/useCredits' */
 
 
 const MovieCard = ({ movie, data }) => {
-	const { id } = useParams()
-	const { data: movieCredits } = useCredits(id)
+	/* const { id } = useParams()
+	const { data: movieCredits } = useCredits(id) */
 
 	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 	const navigate = useNavigate();
+
+	console.log("movie.credits.cast in moviecard is: ", movie.credits.cast)
 
 	return (
 		<>
@@ -22,7 +24,7 @@ const MovieCard = ({ movie, data }) => {
 				<Col xs={12} md={10}>
 					<h2>{movie.title}</h2>
 				</Col>
-				<Col xs={12} md={2} xs={{ order: 'first' }} md={{ order: 'last' }}>
+				<Col xs={12, { order: 'first' }} md={2, { order: 'last' }}>
 					<Button className="mb-sm-2" active variant="dark" onClick={() => navigate(-1)}>Back</Button>
 				</Col>
 			</Row>
@@ -47,8 +49,8 @@ const MovieCard = ({ movie, data }) => {
 								<ListGroup.Item>Tagline: <span><i>{movie.tagline}</i></span></ListGroup.Item>
 							)}
 							<ListGroup.Item>
-								{movieCredits && (
-									<CastList movieCredits={movieCredits} />
+								{movie.credits.cast && (
+									<CastList movie={movie} />
 								)}
 							</ListGroup.Item>
 						</ListGroup>

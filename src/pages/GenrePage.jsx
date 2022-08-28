@@ -2,11 +2,7 @@ import { useSearchParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 
 // bootstrap
-import Dropdown from 'react-bootstrap/Dropdown'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button';
+import { Dropdown, Container, Row, Col, Button } from 'react-bootstrap'
 
 // components 
 import WarningAlert from '../components/alerts/WarningAlert'
@@ -37,7 +33,7 @@ const GenrePage = () => {
                     <h1>All movies</h1>
                 </Col>
 
-                <Col xs={12} md={2} xs={{ order: 'first' }} md={{ order: 'last' }} className="d-flex justify-content-end">
+                <Col xs={12, { order: 'first' }} md={2, { order: 'last' }} className="d-flex">
                     <Button 
                         className="mb-sm-2" 
                         active 

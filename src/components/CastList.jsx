@@ -3,13 +3,12 @@ import { Link/* , useParams */ } from 'react-router-dom'
 
 /* import useCast from '../hooks/useCast' */
 
-const CastList = ({ movieCredits }) => {
+const CastList = ({ movie }) => {
 /* 	const { id } = useParams()
 	const { data: person } = useCast(id) */
 
 
-    console.log("movieCredits in CastList: ", movieCredits)
-	console.log("movieCredits.cast in CastList: ", movieCredits.cast)
+    console.log("movie in CastList: ", movie)
 
 	return (
 		<Table striped hover>
@@ -20,13 +19,13 @@ const CastList = ({ movieCredits }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{movieCredits.cast.map(credits => (
-					<tr key={credits.id}>
+				{movie.credits.cast.map(cast => (
+					<tr key={cast.id}>
 						<td>
                             <a className="text-decoration-none"
-                                href={`/person/${credits.cast}`}
+                                href={`/person/${cast.id}`}
                                 as={Link}
-                                >{credits.name}
+                                >{cast.name}
                             </a>
                             </td>
 					</tr>
