@@ -8,8 +8,8 @@ import logo from '../assets/images/logo.png'
 
 const Footer = () => {
 	return (
-       <Navbar variant="light">
-            <Row className="footer d-flex justify-content-between p-3">
+       <Navbar variant="light p-3">
+            <Row className="footer d-flex justify-content-between align-items-center">
                 <Col xs={12} md={4}>
                     <p>2022 Movie DB, Inc</p>
                 </Col>
@@ -28,8 +28,8 @@ const Footer = () => {
                         </div>
                 </Col>
 
-                <Col xs={12} md={4}>
-                    <Nav className="d-flex justify-content-end">
+                <Col xs={12} md={4} >
+                    <Nav className="d-flex justify-content-end align-self-center">
 						<Nav.Link as={NavLink} end to="/genre">All Movies</Nav.Link>
 						<Nav.Link as={NavLink} end to="/">Home</Nav.Link>
 					</Nav>
