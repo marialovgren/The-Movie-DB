@@ -7,6 +7,7 @@ import { Dropdown, Container, Row, Col, Button } from 'react-bootstrap'
 // Components 
 import WarningAlert from '../components/alerts/WarningAlert'
 import SmallCard from '../components/SmallCard'
+import Pagination from '../components/Pagination'
 
 //Hooks
 import useGenreList from '../hooks/useGenreList' 
@@ -18,8 +19,10 @@ const GenrePage = () => {
         genre_id:"",
     })
     const [genreName, setGenreName] = useState("")
-    const genre_id = searchParams.get('genre_id')
-    const page = searchParams.get('page') // denna har jag till min paginering för att sätta page¢¢
+
+    const genre_id = searchParams.get('genre_id') ? Number(searchParams.get('genre_id')) : ""
+    const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
+
     const { data: genreList, isError, isLoading, error } = useGenreList()
     const { data: moviesByGenre } = useMoviesByGenre(page, genre_id)
 
@@ -84,14 +87,26 @@ const GenrePage = () => {
             )}   
 
             {moviesByGenre && (
-                <Row className="d-flex flex-row justify-content-center">
-                    {moviesByGenre.results.map(movie => (
-                        <Col xs={10} md={4} lg={3} key={movie.id}>
-                            <SmallCard movie={movie} />
-                        </Col>	
-                    ))}
-                </Row>  
-            )}        
+                <>
+                    <Row className="d-flex flex-row justify-content-center">
+                        {moviesByGenre.results.map(movie => (
+                            <Col xs={10} md={4} lg={3} key={movie.id}>
+                                <SmallCard movie={movie} />
+                            </Col>	
+                        ))}
+                    </Row>  
+                    <Row>
+                        <Pagination
+                            page={page}
+                            numPages={moviesByGenre.total_pages}
+                            hasPreviousPage={moviesByGenre.page > 1}
+                            hasNextPage={moviesByGenre.page < moviesByGenre.total_pages}
+                            onPreviousPage={() => setSearchParams({ genre_id: genre_id, page: page - 1})}
+                            onNextPage={() => setSearchParams({ genre_id: genre_id, page: page + 1})}
+                        />
+                    </Row>
+                </>
+            )} 
 		</Container>
 	)
 }
