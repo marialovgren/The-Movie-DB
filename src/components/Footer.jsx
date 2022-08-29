@@ -28,7 +28,7 @@ const Footer = () => {
                         </div>
                 </Col>
 
-                <Col xs={5}>
+                <Col xs={4}>
                     <Nav className="d-flex justify-content-end align-self-center">
 						<Nav.Link as={NavLink} end to="/genre">All Movies</Nav.Link>
 						<Nav.Link as={NavLink} end to="/">Home</Nav.Link>
