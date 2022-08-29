@@ -42,10 +42,6 @@ const getMovie = async (id) => {
 	return get(`/movie/${id}?api_key=${API_KEY}&region=US&append_to_response=credits${adultContent}`)
 }
 
-/* const getCredits = async (id) => {
-	return get(`/movie/${id}/credits?api_key=${API_KEY}&region=US`)
-} */
-
 const getCast = async (id) => {
 	return get(`/person/${id}?api_key=${API_KEY}&region=US&append_to_response=credits`)
 }
@@ -58,6 +54,5 @@ export default {
 	getLatestCinemaMovies,
 	getMoviesByGenre,
 	getGenreList,
-	/* getCredits, */
 	getCast,
 }

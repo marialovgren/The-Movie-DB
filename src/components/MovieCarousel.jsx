@@ -1,7 +1,9 @@
-import { Carousel, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-//hooks
+// Bootstrap
+import { Carousel, Row, Col } from 'react-bootstrap'
+
+// H¢ooks
 import usePopularMovies from '../hooks/usePopularMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useLatestCinemaMovies from '../hooks/useLatestCinemaMovies'
@@ -18,77 +20,75 @@ const MovieCarousel = () => {
 	}
 
 	return (
-        <Row className="movieCarouselWrapper">
+        <Row className="d-flex justify-content-center">
             <Col sm={12} md={5} lg={3}>
-                <h5>20 most popular movies</h5>
+                <h6>20 most popular movies</h6>
                 {popularMovies && (
-                    <Carousel className="my-3 movieCarousel">
-                    {popularMovies.results.map(movie => (
-                    <Carousel.Item 
-                        key={movie.id} 
-                        interval={2000} 
-                        action="true"
-                        as={Link}
-                        to={`/movie/${movie.id}`}
-                    >
-                        <img 
-                        className="d-block w-100"
-                        src={BASE_URL_IMAGE + movie.poster_path}
-                        alt="First slide"
-                        />
-                    </Carousel.Item>
-                    ))}
-                </Carousel>
+                    <Carousel className="my-3">
+                        {popularMovies.results.map(movie => (
+                            <Carousel.Item 
+                                key={movie.id} 
+                                interval={2000} 
+                                action="true"
+                                as={Link}
+                                to={`/movie/${movie.id}`}
+                            >
+                                <img 
+                                className="d-block w-100"
+                                src={BASE_URL_IMAGE + movie.poster_path}
+                                alt="Movie Poster"
+                                />
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
                 )}
-                
             </Col>
 
             <Col sm={12} md={5} lg={3}>
-                <h5>20 top rated movies</h5>
+                <h6>20 top rated movies</h6>
                 {topRatedMovies && (
-                    <Carousel className="my-3 movieCarousel">
-                    {topRatedMovies.results.map(movie => (
-                    <Carousel.Item 
-                        key={movie.id} 
-                        interval={2000} 
-                        action="true"
-                        as={Link}
-                        to={`/movie/${movie.id}`}
-                    >
-                        <img 
-                        className="d-block w-100"
-                        src={BASE_URL_IMAGE + movie.poster_path}
-                        alt="First slide"
-                        />
-                    </Carousel.Item>
-                    ))}
-                </Carousel>
+                    <Carousel className="my-3">
+                        {topRatedMovies.results.map(movie => (
+                            <Carousel.Item 
+                                key={movie.id} 
+                                interval={2000} 
+                                action="true"
+                                as={Link}
+                                to={`/movie/${movie.id}`}
+                            >
+                                <img 
+                                className="d-block w-100"
+                                src={BASE_URL_IMAGE + movie.poster_path}
+                                alt="Movie Poster"
+                                />
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
                 )}
                 
             </Col>
 
             <Col sm={12} md={5} lg={3}>
-                <h5>20 lates movies in cinema</h5>
+                <h6>20 lates movies in cinema</h6>
                 {latestCinemaMovies && (
-                    <Carousel className="my-3 movieCarousel">
-                    {latestCinemaMovies.results.map(movie => (
-                    <Carousel.Item 
-                        key={movie.id} 
-                        interval={2000} 
-                        action="true"
-                        as={Link}
-                        to={`/movie/${movie.id}`}
-                    >
-                        <img 
-                        className="d-block w-100"
-                        src={BASE_URL_IMAGE + movie.poster_path}
-                        alt="First slide"
-                        />
-                    </Carousel.Item>
-                    ))}
-                </Carousel>
+                    <Carousel className="my-3">
+                        {latestCinemaMovies.results.map(movie => (
+                            <Carousel.Item 
+                                key={movie.id} 
+                                interval={2000} 
+                                action="true"
+                                as={Link}
+                                to={`/movie/${movie.id}`}
+                            >
+                                <img 
+                                className="d-block w-100"
+                                src={BASE_URL_IMAGE + movie.poster_path}
+                                alt="Movie Poster"
+                                />
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
                 )}
-                
             </Col>
         </Row>
 	)

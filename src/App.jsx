@@ -1,10 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import Navigation from './components/Navigation'
 import './assets/scss/App.scss'
+
+// Components
+import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 
-/* Pages */
+// Pages 
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import GenrePage from './pages/GenrePage'

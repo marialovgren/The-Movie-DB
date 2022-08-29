@@ -1,21 +1,15 @@
-import Table from 'react-bootstrap/Table'
-import { Link/* , useParams */ } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-/* import useCast from '../hooks/useCast' */
+// Bootstrap
+import Table from 'react-bootstrap/Table'
 
 const CastList = ({ movie }) => {
-/* 	const { id } = useParams()
-	const { data: person } = useCast(id) */
-
-
-    console.log("movie in CastList: ", movie)
 
 	return (
 		<Table striped hover>
 			<thead>
 				<tr>
 					<th>Cast in this movie:</th>
-                   
 				</tr>
 			</thead>
 			<tbody>
@@ -27,7 +21,7 @@ const CastList = ({ movie }) => {
                                 as={Link}
                                 >{cast.name}
                             </a>
-                            </td>
+                        </td>
 					</tr>
 				))}
 			</tbody>

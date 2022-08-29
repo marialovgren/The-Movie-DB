@@ -1,15 +1,15 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom'
+
+// Bootstrap
+import { Card, Button } from 'react-bootstrap'
 
 const SmallCard = ({ movie }) => {
 
 	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
 	return (
-		<Card  className="my-3">
+		<Card className="my-3">
             <Card.Img variant="top" src={BASE_URL_IMAGE + movie.poster_path} />
 			<Card.Body>
                 <Card.Title className="cardTitle">{movie.title}</Card.Title>

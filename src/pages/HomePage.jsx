@@ -1,8 +1,8 @@
+// Bootstrap
 import Container from 'react-bootstrap/Container'
 
-//components
+//Components
 import MovieCarousel from '../components/MovieCarousel'
-import GenrePage from './GenrePage'
 
 const HomePage = () => {
 

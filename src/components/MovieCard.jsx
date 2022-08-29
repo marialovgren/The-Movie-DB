@@ -1,22 +1,16 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+
+// Bootstrap
+import { Card, Col, Row, ListGroup, Button } from 'react-bootstrap'
+
+// Components
 import CastList from './CastList'
-/* import useCredits from '../hooks/useCredits' */
 
-
-const MovieCard = ({ movie, data }) => {
-	/* const { id } = useParams()
-	const { data: movieCredits } = useCredits(id) */
+const MovieCard = ({ movie }) => {
 
 	const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 	const navigate = useNavigate();
-
-	console.log("movie.credits.cast in moviecard is: ", movie.credits.cast)
 
 	return (
 		<>

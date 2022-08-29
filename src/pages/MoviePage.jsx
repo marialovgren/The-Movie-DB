@@ -1,9 +1,12 @@
 import Container from 'react-bootstrap/Container'
 import { useParams } from 'react-router-dom'
+
+// Components
 import WarningAlert from '../components/alerts/WarningAlert'
-import useMovie from '../hooks/useMovie'
 import MovieCard from '../components/MovieCard'
 
+// Hooks
+import useMovie from '../hooks/useMovie'
 
 const MoviePage = () => {
 	const { id } = useParams()
@@ -18,7 +21,6 @@ const MoviePage = () => {
 			{movie && <>
 				<MovieCard movie={movie}/>
 			</>}
-
 
 		</Container>
 	)

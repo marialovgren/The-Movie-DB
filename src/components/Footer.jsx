@@ -1,5 +1,9 @@
-import { Row, Col, Nav, Navbar } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
+
+// Bootstrap
+import { Row, Col, Nav, Navbar } from 'react-bootstrap'
+
+// Logo
 import logo from '../assets/images/logo.png'
 
 const Footer = () => {
@@ -25,14 +29,13 @@ const Footer = () => {
                 </Col>
 
                 <Col xs={12} md={4}>
-                    <Nav className="ms-auto">
+                    <Nav className="d-flex justify-content-end">
 						<Nav.Link as={NavLink} end to="/genre">All Movies</Nav.Link>
 						<Nav.Link as={NavLink} end to="/">Home</Nav.Link>
 					</Nav>
-
                 </Col>
 			</Row>
-            </Navbar>
+        </Navbar>
 	)
 }
 

@@ -1,16 +1,15 @@
-import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
 
-const FilmsList = ({ person }) => {
+// Bootstrap
+import Table from 'react-bootstrap/Table'
 
-    console.log("person.credits in FilmsList: ", person.credits)
+const FilmsList = ({ person }) => {
 
 	return (
 		<Table striped hover>
 			<thead>
 				<tr>
 					<th>Has acted in these movies:</th>
-                   
 				</tr>
 			</thead>
 			<tbody>
@@ -22,7 +21,7 @@ const FilmsList = ({ person }) => {
                                 as={Link}
                                 >{movie.title}
                             </a>
-                            </td>
+                        </td>
 					</tr>
 				))}  
 			</tbody>
