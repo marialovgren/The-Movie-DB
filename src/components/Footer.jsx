@@ -10,11 +10,11 @@ const Footer = () => {
 	return (
        <Navbar variant="light p-3">
             <Row className="footer d-flex justify-content-between align-items-center">
-                <Col xs={12} md={4}>
+                <Col xs={4}>
                     <p>2022 Movie DB, Inc</p>
                 </Col>
 
-                <Col xs={12} md={1}>
+                <Col xs={2} md={1}>
                     <div 
                         action="true"
                         as={Link}
@@ -28,7 +28,7 @@ const Footer = () => {
                         </div>
                 </Col>
 
-                <Col xs={12} md={4} >
+                <Col xs={5}>
                     <Nav className="d-flex justify-content-end align-self-center">
 						<Nav.Link as={NavLink} end to="/genre">All Movies</Nav.Link>
 						<Nav.Link as={NavLink} end to="/">Home</Nav.Link>

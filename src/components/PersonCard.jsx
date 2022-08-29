@@ -14,12 +14,12 @@ const PersonCard = ({ person }) => {
 
 	return (
 		<>
-			<Row className="d-flex justify-content-sm-start">
+			<Row className="d-flex justify-content-start p-3">
 				<Col xs={12} md={10}>
 					<h2>{person.name}</h2>
 				</Col>
 				<Col xs={12, { order: 'first' }} md={2, { order: 'last' }}>
-					<Button className="mb-sm-2" active variant="dark" onClick={() => navigate(-1)}>Back</Button>
+					<Button className="mb-2" active variant="dark" onClick={() => navigate(-1)}>Back</Button>
 				</Col>
 			</Row>
 

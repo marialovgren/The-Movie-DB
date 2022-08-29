@@ -27,9 +27,9 @@ const GenrePage = () => {
     const { data: moviesByGenre } = useMoviesByGenre(page, genre_id)
 
 	return (
-		<Container className="py-3 my-3">
+		<Container className="m-3 p-3">
             <Row className="d-flex align-items-center">
-                <Col xs={12} md={10}>
+                <Col xs={12} md={10} className="mt-2">
                     <h1>All movies</h1>
                 </Col>
 
@@ -77,7 +77,7 @@ const GenrePage = () => {
                             </Dropdown>
                         </Col>
 
-                        <Col xs={12} md={6} className="d-flex justify-content-end">
+                        <Col xs={12} md={6} className="d-flex justify-content-start">
                             {genreName && (
                                 <h4 className="my-3">Now showing genre: {genreName}</h4>
                             )}

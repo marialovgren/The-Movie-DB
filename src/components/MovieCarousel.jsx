@@ -11,7 +11,7 @@ const MovieCarousel = ({ popularMovies, topRatedMovies, latestCinemaMovies }) =>
 
 	return (
         <Row className="d-flex justify-content-center">
-            <Col sm={12} md={5} lg={3}>
+            <Col sm={12} md={5} lg={3} className="m-2 p-3">
                 <h6>20 most popular movies</h6>
                 {popularMovies && (
                     <Carousel className="my-3">
@@ -34,7 +34,7 @@ const MovieCarousel = ({ popularMovies, topRatedMovies, latestCinemaMovies }) =>
                 )}
             </Col>
 
-            <Col sm={12} md={5} lg={3}>
+            <Col sm={12} md={5} lg={3} className="m-2 p-3">
                 <h6>20 top rated movies</h6>
                 {topRatedMovies && (
                     <Carousel className="my-3">
@@ -58,7 +58,7 @@ const MovieCarousel = ({ popularMovies, topRatedMovies, latestCinemaMovies }) =>
                 
             </Col>
 
-            <Col sm={12} md={5} lg={3}>
+            <Col sm={12} md={5} lg={3} className="m-2 p-3">
                 <h6>20 lates movies in cinema</h6>
                 {latestCinemaMovies && (
                     <Carousel className="my-3">
