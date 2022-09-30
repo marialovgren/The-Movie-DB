@@ -16,11 +16,7 @@ const FilmsList = ({ person }) => {
 				  {person.credits.cast.map(movie => (
 					<tr key={movie.id}>
 						<td>
-                            <a className="text-decoration-none"
-                                href={`/movie/${movie.id}`}
-                                as={Link}
-                                >{movie.title}
-                            </a>
+							<Link to={`/movie/${movie.id}`}>{movie.title}</Link>
                         </td>
 					</tr>
 				))}  
